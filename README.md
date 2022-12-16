@@ -10,29 +10,41 @@
 npm install @xct007/tiktok-scraper
 ```
 
-or
+using yarn
 
 ```sh
 yarn add @xct007/tiktok-scraper
 ```
-
+or try this ```0.0.2```
+```sh
+yarn add github:xct007/tiktok-scraper
+```
 #### 2. Import packages
 
 - cjs
 
 ```js
+// 0.0.2
 const { Tiktok } = require("@xct007/tiktok-scraper");
+
+// 0.0.1
+const Tiktok = require("@xct007/tiktok-scraper");
 ```
 
 - ESM
 
 ```ts
+// 0.0.2
 import { Tiktok } from "@xct007/tiktok-scraper";
+
+// 0.0.1
+import Tiktok from "@xct007/tiktok-scraper");
 ```
 
 #### 3. Example
 
 ```js
+// 0.0.1
 const { Tiktok } = require("@xct007/tiktok-scraper");
 
 const url = "https://vt.tiktok.com/ZGJBtcsDq/";
@@ -71,7 +83,8 @@ Tiktok(url).then(async (json) => {
   }
 }
 ```
-
+## Note:
+```0.0.2``` I make test on replit and ```crash``` :/
 ## Contributing
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue.
