@@ -7,6 +7,7 @@ const Tiktok = async(url: string): Promise<any|boolean> => {
     if (valid) {
         const { data } = await axios.get(API_URL(valid), {
             headers: {
+                "Accept-Encoding": "gzip",
                 "User-Agent": "okhttp/3.14.9"
             }
         });
@@ -42,6 +43,8 @@ const Tiktok = async(url: string): Promise<any|boolean> => {
         } else {
             return false
         }
+    } else {
+        return false
     }
 }
-export default Tiktok
+export { Tiktok }

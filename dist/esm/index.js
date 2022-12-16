@@ -6,6 +6,7 @@ const Tiktok = async (url) => {
     if (valid) {
         const { data } = await axios.get(API_URL(valid), {
             headers: {
+                "Accept-Encoding": "gzip",
                 "User-Agent": "okhttp/3.14.9"
             }
         });
@@ -43,6 +44,9 @@ const Tiktok = async (url) => {
             return false;
         }
     }
+    else {
+        return false;
+    }
 };
-export default Tiktok;
+export { Tiktok };
 //# sourceMappingURL=index.js.map

@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Tiktok = void 0;
 const axios_1 = __importDefault(require("axios"));
 const utils_js_1 = require("./utils.js");
 const Tiktok = async (url) => {
@@ -11,6 +12,7 @@ const Tiktok = async (url) => {
     if (valid) {
         const { data } = await axios_1.default.get((0, utils_js_1.API_URL)(valid), {
             headers: {
+                "Accept-Encoding": "gzip",
                 "User-Agent": "okhttp/3.14.9"
             }
         });
@@ -48,6 +50,9 @@ const Tiktok = async (url) => {
             return false;
         }
     }
+    else {
+        return false;
+    }
 };
-exports.default = Tiktok;
+exports.Tiktok = Tiktok;
 //# sourceMappingURL=index.js.map

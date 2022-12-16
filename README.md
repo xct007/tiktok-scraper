@@ -21,22 +21,22 @@ yarn add @xct007/tiktok-scraper
 - cjs
 
 ```js
-const tiktok = require("@xct007/tiktok-scraper");
+const { Tiktok } = require("@xct007/tiktok-scraper");
 ```
 
 - ESM
 
 ```ts
-import tiktok from "@xct007/tiktok-scraper";
+import { Tiktok } from "@xct007/tiktok-scraper";
 ```
 
 #### 3. Example
 
 ```js
-const tiktok = require("@xct007/tiktok-scraper");
+const { Tiktok } = require("@xct007/tiktok-scraper");
 
-let url = "https://vt.tiktok.com/ZGJBtcsDq/";
-tiktok(url).then(async (json) => {
+const url = "https://vt.tiktok.com/ZGJBtcsDq/";
+Tiktok(url).then(async (json) => {
   console.log(json);
 });
 ```

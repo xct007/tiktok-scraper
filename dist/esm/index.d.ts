@@ -1,3 +1,3 @@
 declare const Tiktok: (url: string) => Promise<any | boolean>;
-export default Tiktok;
+export { Tiktok };
 //# sourceMappingURL=index.d.ts.map

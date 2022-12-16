@@ -4,22 +4,35 @@ const API_URL = (aweme: number | string) => {
 }
 
 const getAwemeId = async (url: string): Promise<any|boolean> => {
-	const REGEX = /\bhttps?:\/\/(?:m|www|vm)\.tiktok\.com\/\S*?\b(?:(?:(?:usr|v|embed|user|video)\/|\?shareId=|\&item_id=)(\d+)|(?=\w{7})(\w*?[A-Z\d]\w*)(?=\s|\/$))\b/;
-	const valid = url.match(REGEX)
+// 	const REGEX = /\bhttps?:\/\/(?:m|www|vm)\.tiktok\.com\/\S*?\b(?:(?:(?:usr|v|embed|user|video)\/|\?shareId=|\&item_id=)(\d+)|(?=\w{7})(\w*?[A-Z\d]\w*)(?=\s|\/$))\b/;
+	const Konto1 = /video\/([\d|\+]+)?\/?\?/
+	const valid = url.match(Konto1)
 	if (valid) {
 		return valid[1]
 	} else {
 		try {
-			const data = await axios.get(url)
-			const _url = data.request._redirectable._options.href;
-            const _valid = _url.match(REGEX)
-			if (_valid) {
-				return _valid[1]
+			const data = await axios.get(url, {
+				headers: {
+					"Accept-Encoding": "gzip"
+				},
+				maxRedirects: 0,
+				timeout: 10000
+			}).catch((e: any) => {
+				return e.response.headers.location
+			})
+			if (data) {
+				const _url = data;
+				const _valid = _url.match(Konto1)
+				if (_valid) {
+					return _valid[1]
+				} else {
+					return false
+				}
 			} else {
 				return false
 			}
-		} catch {
-			return false
+		} catch (error: any) {
+			return error
 		}
 	}
 }
