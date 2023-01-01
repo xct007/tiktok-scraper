@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_URL, getAwemeId } from './utils.ts';
+import { API_URL, getAwemeId } from './utils';
 
 type Results = {
 	status: boolean;
