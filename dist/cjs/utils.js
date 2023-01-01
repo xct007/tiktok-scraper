@@ -10,41 +10,43 @@ const API_URL = (aweme) => {
 };
 exports.API_URL = API_URL;
 const getAwemeId = async (url) => {
-    // 	const REGEX = /\bhttps?:\/\/(?:m|www|vm)\.tiktok\.com\/\S*?\b(?:(?:(?:usr|v|embed|user|video)\/|\?shareId=|\&item_id=)(\d+)|(?=\w{7})(\w*?[A-Z\d]\w*)(?=\s|\/$))\b/;
-    const Konto1 = /video\/([\d|\+]+)?\/?\?/;
+    // any :/
+    let result;
+    const Konto1 = /video\/([\d|\+]+)?\/?/;
     const valid = url.match(Konto1);
     if (valid) {
         return valid[1];
     }
     else {
         try {
-            const data = await axios_1.default.get(url, {
+            const data = await axios_1.default
+                .get(url, {
                 headers: {
-                    "Accept-Encoding": "gzip"
+                    'Accept-Encoding': 'deflate',
                 },
                 maxRedirects: 0,
-                timeout: 10000
-            }).catch((e) => {
-                return e.response.headers.location;
-            });
+            })
+                .catch((e) => e.response.headers.location);
             if (data) {
                 const _url = data;
                 const _valid = _url.match(Konto1);
                 if (_valid) {
-                    return _valid[1];
+                    result = _valid[1];
                 }
                 else {
-                    return false;
+                    result = false;
                 }
             }
             else {
-                return false;
+                result = false;
             }
         }
         catch (error) {
-            return error;
+            // console.log(error)
+            result = false;
         }
     }
+    return result;
 };
 exports.getAwemeId = getAwemeId;
 //# sourceMappingURL=utils.js.map

@@ -7,18 +7,22 @@ exports.Tiktok = void 0;
 const axios_1 = __importDefault(require("axios"));
 const utils_js_1 = require("./utils.js");
 const Tiktok = async (url) => {
+    let results;
     const Now = Date.now();
     const valid = await (0, utils_js_1.getAwemeId)(url);
     if (valid) {
-        const { data } = await axios_1.default.get((0, utils_js_1.API_URL)(valid), {
+        const data = await axios_1.default
+            .get((0, utils_js_1.API_URL)(valid), {
             headers: {
-                "Accept-Encoding": "gzip",
-                "User-Agent": "okhttp/3.14.9"
-            }
-        });
-        if (data) {
-            const obj = data.aweme_list.find((o) => o.aweme_id === valid);
-            return {
+                'Accept-Encoding': 'deflate',
+                'User-Agent': 'okhttp/3.14.9',
+            },
+        })
+            .catch((e) => e.response);
+        if (data && data.data && data.data.aweme_list) {
+            const obj = data.data.aweme_list.find((o) => o.aweme_id === valid);
+            results = {
+                status: true,
                 process_time: Now - Date.now(),
                 aweme_id: obj.aweme_id,
                 region: obj.region,
@@ -27,7 +31,7 @@ const Tiktok = async (url) => {
                     uid: obj.author.uid,
                     unique_id: obj.author.unique_id,
                     nickname: obj.author.nickname,
-                    birthday: obj.author.birthday
+                    birthday: obj.author.birthday,
                 },
                 duration: obj.music.duration,
                 download: {
@@ -47,12 +51,14 @@ const Tiktok = async (url) => {
             };
         }
         else {
-            return false;
+            results = { status: false };
         }
     }
     else {
-        return false;
+        results = { status: false };
     }
+    return results;
 };
 exports.Tiktok = Tiktok;
+exports.default = exports.Tiktok;
 //# sourceMappingURL=index.js.map
