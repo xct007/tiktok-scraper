@@ -4,6 +4,7 @@ type Results = {
     aweme_id?: string | number;
     region?: string;
     desc?: string;
+    create_time?: number | string;
     author?: {
         uid?: number | string;
         unique_id?: number | string;

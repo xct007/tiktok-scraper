@@ -21,6 +21,7 @@ export const Tiktok = async (url) => {
                 aweme_id: obj.aweme_id,
                 region: obj.region,
                 desc: obj.desc,
+                create_time: obj.create_time,
                 author: {
                     uid: obj.author.uid,
                     unique_id: obj.author.unique_id,
