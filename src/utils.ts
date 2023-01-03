@@ -32,7 +32,6 @@ const getAwemeId = async (url: string): Promise<any | boolean> => {
 				result = false;
 			}
 		} catch (error: any) {
-			// console.log(error)
 			result = false;
 		}
 	}

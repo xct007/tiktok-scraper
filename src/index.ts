@@ -47,7 +47,7 @@ export const Tiktok = async (url: string): Promise<Results> => {
 			const obj = data.data.aweme_list.find((o: any) => o.aweme_id === valid);
 			results = {
 				status: true,
-				process_time: Now - Date.now(),
+				process_time: Date.now() - Now,
 				aweme_id: obj.aweme_id,
 				region: obj.region,
 				desc: obj.desc,
