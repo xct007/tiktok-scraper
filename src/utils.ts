@@ -19,7 +19,7 @@ const getAwemeId = async (url: string): Promise<any | boolean> => {
 					},
 					maxRedirects: 0,
 				})
-				.catch((e: any) => e.response.headers.location);
+				.catch((e: any) => e?.response?.headers?.location);
 			if (data) {
 				const _url = data;
 				const _valid = _url.match(Konto1);
