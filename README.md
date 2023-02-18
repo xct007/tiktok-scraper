@@ -18,7 +18,7 @@ yarn add @xct007/tiktok-scraper
 
 #### 2. Import packages
 
-- cjs
+- CJS
 
 ```js
 const { Tiktok } = require('@xct007/tiktok-scraper');
@@ -54,6 +54,7 @@ Tiktok(url).then(async (json) => {
     uid: String,
     unique_id: String,
     nickname: String,
+    birthday: String,
   },
   duration: Number,
   download: {
