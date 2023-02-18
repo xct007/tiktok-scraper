@@ -2,8 +2,8 @@
   "display": "BASE",
   "compilerOptions": {
       "declaration": true,
-      "sourceMap": true,
-      "declarationMap": true,
+      "sourceMap": false,
+      "declarationMap": false,
       "esModuleInterop": true,
       "checkJs": true,
       "target": "ES2019",
