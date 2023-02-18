@@ -50,6 +50,7 @@ Tiktok(url).then((json) => {
   aweme_id: String,
   region: String,
   desc: String,
+  create_time: Number,
   author: {
     uid: String,
     unique_id: String,
