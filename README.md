@@ -69,14 +69,22 @@ Tiktok(url).then(async (json) => {
       cover_large: String,
       cover_medium: String,
     }
+  },
+  statistics: {
+    comment_count: Number,
+    digg_count: Number,
+    download_count: Number,
+    play_count: Number,
+    share_count: Number,
   }
 }
 ```
-
+## TODO
+- [ ] Add TikTok effects Api
 ## Contributing
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue.
-Don't forget to give the project a star! Thanks again!
+Don't forget to give the repo a star! Thanks again!
 
 1. Fork the Repo
 2. Commit your Changes
