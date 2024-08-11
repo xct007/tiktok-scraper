@@ -1,2 +1,11 @@
-node_modules
-*lock.json
+# dependencies
+/node_modules
+
+# misc
+.DS_Store
+
+# jest
+/coverage
+
+# build
+/dist
