@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "declaration": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "strict": true,
+    "target": "esnext",
+    "types": ["node", "jest"],
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts"],
+  "exclude": ["node_modules", "dist"]
+}
