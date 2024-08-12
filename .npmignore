@@ -1,6 +1,0 @@
-node_modules
-scripts
-src
-tsconfig*.json
-tslint*.json
-.prettierrc
