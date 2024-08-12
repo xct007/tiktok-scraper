@@ -35,7 +35,6 @@ export function parseAweme(
 	data: Aweme,
 	options?: IParseOptions
 ): Partial<Aweme> | IParsed {
-	// If no keys are specified, return the full parsed object
 	const parsed: IParsed = {
 		aweme_id: data.aweme_id,
 		region: data.region,
@@ -59,14 +58,14 @@ export function parseAweme(
 	};
 	if (options && options.keys) {
 		const parsedData: Partial<Aweme> = {
-            ...parsed,
-        };
+			...parsed,
+		};
 		for (const key of options.keys) {
 			if (key in data) {
-                parsedData[key] = data[key];
+				parsedData[key] = data[key];
 			}
 		}
-        return parsedData;
+		return parsedData;
 	}
 	return parsed;
 }
