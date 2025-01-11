@@ -1,28 +1,31 @@
 import Tiktok from "../src/index";
 
 describe("Tiktok", () => {
-	it("should return aweme list", async () => {
-		const url = "https://vt.tiktok.com/ZGJBtcsDq/";
+	
+	let tiktokUrl: string;
 
-		const result = await Tiktok(url);
+	beforeAll(() => {
+		tiktokUrl = "https://vt.tiktok.com/ZGJBtcsDq/";
+	});
+
+	it("should return aweme list", async () => {
+		const result = await Tiktok(tiktokUrl);
 
 		expect(result).toBeInstanceOf(Array);
 	});
 	it("should return aweme list with parse options", async () => {
-		const url = "https://vt.tiktok.com/ZGJBtcsDq/";
 		const options = { parse: true };
 
-		const result = await Tiktok(url, {
+		const result = await Tiktok(tiktokUrl, {
 			...options,
 		});
 
 		expect(result).toHaveProperty("author");
 	});
 	it("should return aweme list with parse options and keys", async () => {
-		const url = "https://vt.tiktok.com/ZGJBtcsDq/";
 		const options = { parse: true };
 
-		const result = await Tiktok(url, {
+		const result = await Tiktok(tiktokUrl, {
 			...options,
 			keys: ["desc_language"],
 		});
